@@ -7,6 +7,7 @@ public class TurretShooting : MonoBehaviour
     [SerializeField] private GameObject bulletPrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float shootInterval;
+    [SerializeField] private TurretBulletPool bulletPool;
 
     private float lastShootTime;
 
@@ -14,8 +15,7 @@ public class TurretShooting : MonoBehaviour
     {
         if (Time.time >= lastShootTime + shootInterval)
         {
-            //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
-            Debug.Log("POW");
+            bulletPool.GetBullet();
             lastShootTime = Time.time;
         }
     }

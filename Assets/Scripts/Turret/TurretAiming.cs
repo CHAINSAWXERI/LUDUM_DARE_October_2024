@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TurretAiming : MonoBehaviour
 {
-    [SerializeField] private Transform target;
+    [SerializeField] public Transform target { get; private set; }
     [SerializeField] private float rotationSpeed;
 
     private void Update()

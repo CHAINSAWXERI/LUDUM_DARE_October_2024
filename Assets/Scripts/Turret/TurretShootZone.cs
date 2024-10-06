@@ -9,13 +9,10 @@ public class TurretShootZone : MonoBehaviour
     [SerializeField] private TurretShooting turretShooting;
     [SerializeField] private LayerMask TriggerLayer;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        Debug.Log("Find");
-
         if (((1 << other.gameObject.layer) & TriggerLayer) != 0)
         {
-            Debug.Log("Find Find");
             turret.SetTarget(other.transform);
             turretShooting.Shoot();
         }
